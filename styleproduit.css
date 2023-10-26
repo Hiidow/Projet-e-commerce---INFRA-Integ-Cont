@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  
+  ul.produits {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    width: 200px;
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .banniere {
+    width: 100%;
+    height: 100px;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .banniere h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .voiture {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 10px;
+  }
+  
+  .voiture img {
+    width: 75%;
+    display: block;
+    margin: auto
+  }
+  
+  .voiture h3 {
+    text-align: center;
+  }
+  
+  .voiture p {
+    text-align: center;
+  }
+  .affichage {
+    width: 600px;
+    height: 800px;
+    background-color: #fff;
+    border: 30px solid #ccc;
+    margin: 10px;
+  }
