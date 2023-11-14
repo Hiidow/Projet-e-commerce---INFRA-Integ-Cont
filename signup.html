@@ -27,25 +27,10 @@
 
         <label for="password_confirmation">Confirm Password</label>
         <input type="password" placeholder="Confirm Password" id="password_confirmation">
-
-        <button>Sign Up</button>
+        <button id="mybutton" class="float-left submit-button" >Sign Up</button>
     </form>
 
-    <script>
-      document.querySelector('button').addEventListener('click', function() {
-        // Stocker les informations de l'utilisateur en local
-        localStorage.setItem('username', document.getElementById('username').value);
-        localStorage.setItem('email', document.getElementById('email').value);
-        localStorage.setItem('password', document.getElementById('password').value);
-        console.log(localStorage.getItem('username'));
-        console.log(localStorage.getItem('email'));
-        console.log(localStorage.getItem('password'));
-
-        // Rediriger l'utilisateur vers la page d'accueil
-        //window.location = 'D:\\cours\\EPSI\\Integration_Continue\\Projet-e-commerce---INFRA-Integ-Cont\\index.html';
-        // Empêcher la page d'être actualisée
-        event.preventDefault();
-      });
-    </script>
+    <script type="text/javascript" src="assets/js/signup.js"></script>
+    
 </body>
 </html>
