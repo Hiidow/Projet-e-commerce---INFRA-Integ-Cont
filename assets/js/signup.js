@@ -22,10 +22,21 @@ document.getElementById('button').addEventListener('click', function() {
     users.push(user)
   }
   else {
-    users = JSON.parse(localStorage.getItem("users"))
-    users.push(user)
+    //if entry already exists
+    if (JSON.parse(localStorage.getItem("users")).some(e => e.username === username)) {
+      alert("Username already exists")
+      return
+    }
+    else if (JSON.parse(localStorage.getItem("users")).some(e => e.email === email)) {
+      alert("Email already exists")
+      return
+    }
+    else {
+      users = JSON.parse(localStorage.getItem("users"))
+      users.push(user)
+    }
   }
-  
+
   // Stocker les informations de l'utilisateur en local
   localStorage.setItem("users", JSON.stringify(users));
 });
