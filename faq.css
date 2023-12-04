@@ -91,6 +91,19 @@ a:hover {
   background-color: #555;
 }
 
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+}
+
+.show-answer {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+  display: block;
+  margin-top: 10px;
+}
+
 /* Pied de page */
 footer {
   background-color: #333;
