@@ -1,68 +1,101 @@
-body {
-    font-family: sans-serif;
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-  }
-  
-  header {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  nav a {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  section {
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .faq {
-    margin-bottom: 40px;
-  }
-  
-  .faq-question {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .faq-answer {
-    margin-bottom: 20px;
-  }
-  
-  img {
-    max-width: 100%;
-  }
-  
-  footer {
-    background-color: #dd2424;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
+/* Réinitialisation des marges et des rembourrages */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
 
-  
+/* Styles pour l'ensemble du corps de la page */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #555; /* Légère variation de la couleur du texte */
+  background-color: #f9f9f9; /* Légère variation de la couleur de fond */
+  line-height: 1.6;
+}
+
+/* En-tête */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 32px; /* Taille de police augmentée pour attirer l'attention */
+}
+
+header nav {
+  margin-top: 20px;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold; /* Ajout de la graisse pour un meilleur contraste */
+}
+
+/* Section "Mon panier" */
+section {
+  background-color: #fff;
+  padding: 30px;
+  margin: 20px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre légèrement plus prononcée */
+  border-radius: 8px; /* Coins arrondis pour un aspect plus moderne */
+}
+
+section h2 {
+  font-size: 28px; /* Taille de police augmentée pour attirer l'attention */
+  margin-bottom: 20px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Ajout d'une marge en haut du tableau pour un meilleur espacement */
+}
+
+table th, table td {
+  padding: 15px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f5f5f5;
+  color: #555; /* Légère variation de la couleur du texte */
+  font-weight: bold;
+}
+
+#total-panier {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+  margin-top: 20px; /* Ajustement de la marge pour une meilleure séparation */
+}
+
+a {
+  display: inline-block;
+  padding: 15px 30px;
+  text-decoration: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+/* Pied de page */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0; /* Ajustement de la marge intérieure du pied de page */
+  margin-top: 20px; /* Ajustement de la marge supérieure pour une meilleure séparation */
+}
