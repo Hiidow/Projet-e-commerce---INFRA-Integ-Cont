@@ -39,18 +39,10 @@ document.getElementById('button').addEventListener('click', function() {
 
   // Stocker les informations de l'utilisateur en local
   localStorage.setItem("users", JSON.stringify(users));
+  console.log(JSON.parse(localStorage.getItem("users")));
 });
 
 
 document.getElementById('button2').addEventListener('click', function() {
-  console.log(JSON.parse(localStorage.getItem("users")));
-});
-
-document.getElementById('button3').addEventListener('click', function() {
   window.location.href = "file:///D:/cours/EPSI/Integration_Continue/Projet-e-commerce---INFRA-Integ-Cont/login.html";
 });
-
-document.getElementById("button4").addEventListener('click', function() {
-  //clear local storage
-  localStorage.clear();
-})
