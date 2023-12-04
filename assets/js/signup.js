@@ -7,7 +7,7 @@ let users = [
 ];
 
 
-document.querySelector('button').addEventListener('click', function() {
+document.getElementById('button').addEventListener('click', function() {
   let username = document.getElementById('username').value;
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
@@ -22,8 +22,15 @@ document.querySelector('button').addEventListener('click', function() {
 
   // Stocker les informations de l'utilisateur en local
   localStorage.setItem("users", JSON.stringify(users));
+});
 
 
-  // Rediriger l'utilisateur vers la page d'accueil
-  window.location.href = "http://127.0.0.1:5500/login.html";
+document.getElementById('button2').addEventListener('click', function() {
+  console.log(JSON.parse(localStorage.getItem("users")));
+  window.location.href = "file:///D:/cours/EPSI/Integration_Continue/Projet-e-commerce---INFRA-Integ-Cont/login.html";
+  event.preventDefault();
+});
+
+document.getElementById('button3').addEventListener('click', function() {
+  window.location.href = "file:///D:/cours/EPSI/Integration_Continue/Projet-e-commerce---INFRA-Integ-Cont/login.html";
 });
