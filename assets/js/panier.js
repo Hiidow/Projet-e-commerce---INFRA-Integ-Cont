@@ -30,6 +30,9 @@ function getPanierFromLocalStorage() {
                 totalCell.textContent = produit.quantite * produit.prix;
                 row.appendChild(totalCell);
 
+                // Ajoutez la classe 'subtotal' à la cellule du total
+                totalCell.classList.add('subtotal');
+
                 const supprimerCell = document.createElement('td');
                 supprimerCell.innerHTML = `<a href="#" class="remove-btn">Supprimer</a>`;
                 row.appendChild(supprimerCell);
@@ -102,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const row = this.parentNode.parentNode;
             const produit = {
                 nom: row.children[0].textContent,
-                quantite: row.children[1].textContent,
-                prix: row.children[2].textContent
+                quantite: parseFloat(row.children[1].textContent),
+                prix: parseFloat(row.children[2].textContent)
             };
         
             // Calculez le sous-total
@@ -141,22 +144,24 @@ document.addEventListener('DOMContentLoaded', function () {
     function removeItem() {
         var row = this.parentNode.parentNode; // Ligne actuelle
         if (row.parentNode) {
+            const produit = {
+                nom: row.children[0].textContent,
+                quantite: parseInt(row.children[1].textContent), // Convertissez la quantité en nombre
+                prix: parseFloat(row.children[2].textContent)
+            };
+
+            removeProduitFromPanier(produit); // Supprimez l'article du panier
+            updateLocalStoragePanier(); // Mettez à jour le panier dans le localStorage
             row.parentNode.removeChild(row); // Supprimez la ligne du DOM
+            updateTotal(); // Mettez à jour le total global
         }
-    
-        const produit = {
-            nom: row.children[0].textContent,
-            quantite: row.children[1].textContent,
-            prix: row.children[2].textContent
-        };
-    
-        removeProduitFromPanier(produit); // Supprimez l'article du panier
-        updateLocalStoragePanier(); // Mettez à jour le panier dans le localStorage
-        updateTotal(); // Mettez à jour le total global
     }
+
     
     function updateLocalStoragePanier() {
         localStorage.setItem('panier', JSON.stringify(panier));
     }
     
+    updatePanierTotal();
+
 });
