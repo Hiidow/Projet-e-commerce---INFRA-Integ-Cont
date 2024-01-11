@@ -1,53 +1,96 @@
 let panier = [];
     
+function clearPanierDOM() {
+    const tbody = document.getElementById('paniertbody');
+    if (tbody) {
+        tbody.innerHTML = ''; // Vide le contenu actuel du tableau
+    } else {
+        console.error("L'élément #paniertbody n'a pas été trouvé dans le document.");
+    }
+}
+
+function reconstructPanierDOM() {
+    const tbody = document.getElementById('paniertbody');
+    if (tbody) {
+        for (const produit of panier) {
+            const row = document.createElement('tr');
+            const nomCell = document.createElement('td');
+            nomCell.textContent = produit.nom;
+            row.appendChild(nomCell);
+
+            const quantiteCell = document.createElement('td');
+            const moinsBtn = document.createElement('button');
+            moinsBtn.textContent = '-';
+            moinsBtn.addEventListener('click', function () {
+                decrementerQuantite(produit);
+            });
+            quantiteCell.appendChild(moinsBtn);
+
+            const quantiteText = document.createElement('span');
+            quantiteText.textContent = produit.quantite;
+            quantiteCell.appendChild(quantiteText);
+
+            const plusBtn = document.createElement('button');
+            plusBtn.textContent = '+';
+            plusBtn.addEventListener('click', function () {
+                incrementerQuantite(produit);
+            });
+            quantiteCell.appendChild(plusBtn);
+
+            row.appendChild(quantiteCell);
+
+            const prixCell = document.createElement('td');
+            prixCell.textContent = produit.prix;
+            row.appendChild(prixCell);
+
+            const totalCell = document.createElement('td');
+            totalCell.textContent = produit.quantite * produit.prix;
+            row.appendChild(totalCell);
+            totalCell.classList.add('subtotal');
+
+            const supprimerCell = document.createElement('td');
+            supprimerCell.innerHTML = `<a href="#" class="remove-btn">Supprimer</a>`;
+            row.appendChild(supprimerCell);
+
+            tbody.appendChild(row);
+        }
+    } else {
+        console.error("L'élément #paniertbody n'a pas été trouvé dans le document.");
+    }
+}
+
 function getPanierFromLocalStorage() {
     const localStoragePanier = localStorage.getItem('panier');
     if (localStoragePanier) {
         panier = JSON.parse(localStoragePanier);
-
-        // Récupérez l'élément #panier-tbody
-        const tbody = document.getElementById('paniertbody');
-
-        // Vérifiez si l'élément existe avant d'ajouter des lignes
-        if (tbody) {
-            // Créez une nouvelle ligne de panier pour chaque produit
-            for (const produit of panier) {
-                const row = document.createElement('tr');
-                // Ajoutez les données du produit à la ligne
-                const nomCell = document.createElement('td');
-                nomCell.textContent = produit.nom;
-                row.appendChild(nomCell);
-
-                const quantiteCell = document.createElement('td');
-                quantiteCell.textContent = produit.quantite;
-                row.appendChild(quantiteCell);
-
-                const prixCell = document.createElement('td');
-                prixCell.textContent = produit.prix;
-                row.appendChild(prixCell);
-
-                const totalCell = document.createElement('td');
-                totalCell.textContent = produit.quantite * produit.prix;
-                row.appendChild(totalCell);
-
-                // Ajoutez la classe 'subtotal' à la cellule du total
-                totalCell.classList.add('subtotal');
-
-                const supprimerCell = document.createElement('td');
-                supprimerCell.innerHTML = `<a href="#" class="remove-btn">Supprimer</a>`;
-                row.appendChild(supprimerCell);
-
-                // Ajoutez la ligne au tableau
-                tbody.appendChild(row);
-            }
-        } else {
-            console.error("L'élément #paniertbody n'a pas été trouvé dans le document.");
-        }
+        clearPanierDOM();
+        reconstructPanierDOM();
     }
 }
 
+function updateLocalStoragePanier() {
+    localStorage.setItem('panier', JSON.stringify(panier));
+}
 
-     
+// Fonction pour décrémenter la quantité d'un produit
+function decrementerQuantite(produit) {
+    if (produit.quantite > 1) {
+        produit.quantite--;
+        updateLocalStoragePanier();
+        // Mettez à jour l'affichage de la quantité
+        getPanierFromLocalStorage();
+        updatePanierTotal();
+    }
+}
+
+// Fonction pour incrémenter la quantité d'un produit
+function incrementerQuantite(produit) {
+    produit.quantite++;
+    updatePanierTotal();
+    updateLocalStoragePanier();
+    // Mettez à jour l'affichage de la quantité
+    getPanierFromLocalStorage();
+}
 
 
 console.log(localStorage.getItem('panier'));
@@ -155,11 +198,6 @@ document.addEventListener('DOMContentLoaded', function () {
             row.parentNode.removeChild(row); // Supprimez la ligne du DOM
             updateTotal(); // Mettez à jour le total global
         }
-    }
-
-    
-    function updateLocalStoragePanier() {
-        localStorage.setItem('panier', JSON.stringify(panier));
     }
     
     updatePanierTotal();
