@@ -22,7 +22,7 @@ document.getElementById('BVoiture1').addEventListener('click',function() {
 
     // Enregistrement du panier dans le localStorage
     localStorage.setItem('panier', JSON.stringify(panier));
-    alert('Le produit a été ajouté au panier');
+    afficherNotification('Le produit a été ajouté au panier');
     console.log(panier);
 })
 
@@ -46,7 +46,7 @@ document.getElementById('BVoiture2').addEventListener('click',function() {
 
     // Enregistrement du panier dans le localStorage
     localStorage.setItem('panier', JSON.stringify(panier));
-    alert('Le produit a été ajouté au panier');
+    afficherNotification('Le produit a été ajouté au panier');
     console.log(panier);
 })
 
@@ -69,6 +69,22 @@ document.getElementById('BVoiture3').addEventListener('click',function() {
 
     // Enregistrement du panier dans le localStorage
     localStorage.setItem('panier', JSON.stringify(panier));
-    alert('Le produit a été ajouté au panier');
+    afficherNotification('Le produit a été ajouté au panier');
     console.log(panier);
 })
+
+function afficherNotification(message) {
+    // Créez l'élément de notification
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+
+    // Ajoutez l'élément au conteneur de notifications
+    const container = document.getElementById('notification-container');
+    container.appendChild(notification);
+
+    // Supprimez la notification après un certain délai (par exemple, 3 secondes)
+    setTimeout(function () {
+        container.removeChild(notification);
+    }, 3000); // 3000 millisecondes (3 secondes)
+}
