@@ -6,7 +6,6 @@ let users = [
   },
 ];
 
-
 document.getElementById('button').addEventListener('click', function() {
   let username = document.getElementById('username').value;
   let email = document.getElementById('email').value;
@@ -43,6 +42,6 @@ document.getElementById('button').addEventListener('click', function() {
 });
 
 
-document.getElementById('button2').addEventListener('click', function() {
+document.getElementById('log').addEventListener('click', function() {
   window.location.href = "file:///D:/cours/EPSI/Integration_Continue/Projet-e-commerce---INFRA-Integ-Cont/login.html";
 });

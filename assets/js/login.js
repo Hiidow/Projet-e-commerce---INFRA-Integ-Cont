@@ -1,32 +1,45 @@
+let users = []; 
+
+function getUsersFromLocalStorage() {
+    // Récupérer les utilisateurs depuis le local storage
+    users = JSON.parse(localStorage.getItem('users'));
+    // Si des utilisateurs sont présents dans le local storage
+    if (users) {
+      // Afficher les utilisateurs dans la console
+      console.log(users);
+    }
+}
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', function() {
+    getUsersFromLocalStorage();
+
+    // Vérifier si l'utilisateur est déjà connecté
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    
+    console.log(user);
+
+    // Si l'utilisateur est déjà connecté
+    if (user) {
+      // Rediriger l'utilisateur vers la page d'accueil
+      window.location.href = 'index.html';
+    }
+});
+
 document.querySelector('button').addEventListener('click', function() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    console.log(username)
-    console.log(password)
 
-    // Vérifier si les informations de l'utilisateur sont présentes dans le local storage
-    const user = localStorage.getItem(username);
-    const email = localStorage.getItem(username);
-
-    console.log(user);
-    console.log(email);
-
-    // Si les informations de l'utilisateur sont présentes dans le local storage
-    if (user || localStorage.getItem(email)) {
-    // Vérifier si le mot de passe est correct
-    if (user.password === password || localStorage.getItem(email).password === password) {
-        // L'utilisateur est connecté
-        // Rediriger l'utilisateur vers la page d'accueil
-        window.location = '/';
+    // Vérifier si l'utilisateur existe
+    const user = users.find(user => user.username === username && user.password === password);
+    // Si l'utilisateur existe
+    if (user) {
+      // Stocker l'utilisateur en session
+      sessionStorage.setItem('user', JSON.stringify(user));
+      // Rediriger l'utilisateur vers la page d'accueil
+      window.location.href = 'index.html';
     } else {
-        // Le mot de passe est incorrect
-        // Afficher un message d'erreur à l'utilisateur
-        alert('Le mot de passe est incorrect.');
+      // Afficher un message d'erreur
+      alert('Utilisateur inconnu');
     }
-    } else {
-    // Les informations de l'utilisateur ne sont pas présentes dans le local storage
-    // Afficher un message d'erreur à l'utilisateur
-    alert('L\'utilisateur n\'existe pas.');
-    }
-
-  });
+}
+);
