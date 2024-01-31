@@ -1,3 +1,5 @@
+/* Réorganiser et améliorer le style de votre page HTML */
+
 /* Réinitialisation des marges et des rembourrages */
 body, h1, h2, p {
   margin: 0;
@@ -6,11 +8,10 @@ body, h1, h2, p {
 
 /* Styles pour l'ensemble du corps de la page */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
-  color: #555; /* Légère variation de la couleur du texte */
-  background-color: #f9f9f9; /* Légère variation de la couleur de fond */
-  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
 }
 
 /* En-tête */
@@ -22,7 +23,7 @@ header {
 }
 
 header h1 {
-  font-size: 32px; /* Taille de police augmentée pour attirer l'attention */
+  font-size: 24px;
 }
 
 header nav {
@@ -33,7 +34,6 @@ header a {
   color: #fff;
   text-decoration: none;
   margin: 0 15px;
-  font-weight: bold; /* Ajout de la graisse pour un meilleur contraste */
 }
 
 /* Section "Mon panier" */
@@ -41,12 +41,11 @@ section {
   background-color: #fff;
   padding: 30px;
   margin: 20px 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre légèrement plus prononcée */
-  border-radius: 8px; /* Coins arrondis pour un aspect plus moderne */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section h2 {
-  font-size: 28px; /* Taille de police augmentée pour attirer l'attention */
+  font-size: 24px;
   margin-bottom: 20px;
   color: #333;
 }
@@ -54,7 +53,6 @@ section h2 {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px; /* Ajout d'une marge en haut du tableau pour un meilleur espacement */
 }
 
 table th, table td {
@@ -64,7 +62,7 @@ table th, table td {
 
 table th {
   background-color: #f5f5f5;
-  color: #555; /* Légère variation de la couleur du texte */
+  color: #333;
   font-weight: bold;
 }
 
@@ -73,7 +71,7 @@ table th {
   font-weight: bold;
   color: #333;
   text-align: right;
-  margin-top: 20px; /* Ajustement de la marge pour une meilleure séparation */
+  margin-top: 10px;
 }
 
 a {
@@ -91,6 +89,16 @@ a:hover {
   background-color: #555;
 }
 
+/* Pied de page */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+
 .faq-answer {
   display: none;
   margin-top: 10px;
@@ -104,11 +112,3 @@ a:hover {
   margin-top: 10px;
 }
 
-/* Pied de page */
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0; /* Ajustement de la marge intérieure du pied de page */
-  margin-top: 20px; /* Ajustement de la marge supérieure pour une meilleure séparation */
-}
