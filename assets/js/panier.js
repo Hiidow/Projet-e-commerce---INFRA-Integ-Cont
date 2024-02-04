@@ -206,4 +206,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-export default {clearPanierDOM}
+module.exports = clearPanierDOM;

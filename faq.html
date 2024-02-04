@@ -116,26 +116,6 @@
   <footer>
     <p>Copyright &copy; 2023</p>
   </footer>
-  <script>
-    // Fonction pour afficher ou masquer la réponse
-    function toggleAnswer(index) {
-      var answer = document.getElementById('answer-' + index);
-      answer.style.display = (answer.style.display === 'none' || answer.style.display === '') ? 'block' : 'none';
-    }
-    
-    // Ajoutez des boutons pour chaque question
-    document.addEventListener('DOMContentLoaded', function () {
-      var questions = document.querySelectorAll('h2');
-      questions.forEach(function (question, index) {
-        var button = document.createElement('span');
-        button.className = 'show-answer';
-        button.textContent = 'Voir la réponse';
-        button.onclick = function () {
-          toggleAnswer(index);
-        };
-        question.insertAdjacentElement('afterend', button);
-      });
-    });
-  </script>
+  <script src="assets/js/faq.js"></script>
 </body>
 </html>
