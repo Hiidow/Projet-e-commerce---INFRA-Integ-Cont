@@ -1,0 +1,37 @@
+<html>
+    <nav>
+        <ul>
+          <li><a href="/produits">Produits</a>
+            <ul>
+              <li><a href="/produits/categorie-1">Catégorie 1</a></li>
+              <li><a href="/produits/categorie-2">Catégorie 2</a>
+                <ul>
+                  <li><a href="/produits/categorie-2/sous-categorie-1">Sous-catégorie 1</a></li>
+                  <li><a href="/produits/categorie-2/sous-categorie-2">Sous-catégorie 2</a></li>
+                </ul>
+              </li>
+              <li><a href="/produits/categorie-3">Catégorie 3</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+
+      <form action="/produits/recherche" method="get">
+        <input type="text" name="q" placeholder="Rechercher un produit">
+        <input type="submit" value="Rechercher">
+      </form>
+
+
+      <div class="produit">
+        <img src="image.jpg" alt="Image du produit">
+        <h2>Nom du produit</h2>
+        <p>Description du produit</p>
+        <p>Prix : €10</p>
+        <p>Disponible en stock</p>
+      </div>
+      
+
+</html>
+
+    
