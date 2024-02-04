@@ -7,6 +7,8 @@ function clearPanierDOM() {
     } else {
         console.error("L'élément #paniertbody n'a pas été trouvé dans le document.");
     }
+
+    return "Le panier a été vidé";
 }
 
 function reconstructPanierDOM() {
@@ -203,3 +205,5 @@ document.addEventListener('DOMContentLoaded', function () {
     updatePanierTotal();
 
 });
+
+export default {clearPanierDOM}
